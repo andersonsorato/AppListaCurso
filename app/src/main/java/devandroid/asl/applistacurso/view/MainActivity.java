@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
     EditText Txt_Nome;
     Button btnSalvar;
+    Button btnLimpar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +25,22 @@ public class MainActivity extends AppCompatActivity {
 
         Txt_Nome = findViewById(R.id.txt_nome);
         Txt_Nome.setText(pessoa.getPrimeiroNome());
+        btnSalvar = findViewById(R.id.btn_salvar);
+        btnLimpar = findViewById(R.id.btn_limpar);
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "salvar", Toast.LENGTH_LONG).show();
+                pessoa.setPrimeiroNome(Txt_Nome.getText().toString());
+                Toast.makeText(MainActivity.this, "salvar" + pessoa.getPrimeiroNome().toString(), Toast.LENGTH_LONG).show();
+
             }
         });
+        btnLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Txt_Nome.setText("");
+            }
+        });
+
     }
 }
