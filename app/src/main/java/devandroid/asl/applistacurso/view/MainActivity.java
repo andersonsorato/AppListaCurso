@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor listaVip = preferences.edit();
         pessoa = new Pessoa();
         control = new PessoaControl();
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome",""));
         Txt_Nome = findViewById(R.id.txt_nome);
         Txt_Nome.setText(pessoa.getPrimeiroNome());
         btnSalvar = findViewById(R.id.btn_salvar);
